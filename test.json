@@ -1,0 +1,42 @@
+{
+    "name": "Test Tournament",
+    "location": "NJ",
+    "start_date": "2026-01-01",
+    "end_date": "2026-01-02",
+    "description": "Test Tournament",
+    "current_round": 1,
+    "number_of_rounds": 4,
+    "players": [
+        {
+            "name": "Javier",
+            "email": "test@test.com",
+            "chess_id": "1234",
+            "birthday": "23-06-2004"
+        }
+    ],
+    "rounds": [
+        {
+            "round_number": 1,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Javier",
+                            "email": "test@test.com",
+                            "chess_id": "1234",
+                            "birthday": "23-06-2004"
+                        },
+                        {
+                            "name": "Javier",
+                            "email": "test@test.com",
+                            "chess_id": "1234",
+                            "birthday": "23-06-2004"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": false
+                }
+            ]
+        }
+    ]
+}

@@ -27,12 +27,11 @@ tournament = Tournament(
     [round1]
 )
 
-data = tournament.serialize()
+print("Saving tournament...")
+tournament.save("test.json")
 
-print("Serialized:")
-print(data)
-
-loaded_tournament = Tournament.from_dict(data)
+print("Loading tournament...")
+loaded_tournament = Tournament.load("test.json")
 
 print("\nLoaded:")
 print(loaded_tournament)

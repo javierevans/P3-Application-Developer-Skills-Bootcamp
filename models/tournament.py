@@ -1,5 +1,7 @@
 from .rounds import Round
 from .player import Player
+import json
+from pathlib import Path
 
 class Tournament:
     def __init__(self, name, location, start_date, end_date, number_of_rounds, description, current_round = 0 , players = None, rounds = None ):
@@ -37,6 +39,10 @@ class Tournament:
             "rounds" : [round_obj.serialize() for round_obj in self.rounds],  
         }
         
+    def save(self, filepath):
+        with open(filepath, "w") as file:
+            json.dump(self.serialize(), file, indent=4)
+        
     @classmethod
     def from_dict(cls, data):
         players = [
@@ -60,3 +66,10 @@ class Tournament:
             players,
             rounds
         )
+    
+    @classmethod
+    def load(cls, filepath):
+        with open(filepath, "r") as file:
+         data = json.load(file)
+
+        return cls.from_dict(data)
