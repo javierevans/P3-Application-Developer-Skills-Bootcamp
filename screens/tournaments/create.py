@@ -20,4 +20,4 @@ class TournamentCreate(BaseScreen):
         print("Type in the number of the rounds")
         number_of_rounds = self.input_string()
 
-        return TournamentCreateCmd(name, location, start_date, end_date, description, number_of_rounds, )
+        return TournamentCreateCmd(name, location, start_date, end_date, number_of_rounds, description)

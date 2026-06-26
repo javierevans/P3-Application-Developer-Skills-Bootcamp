@@ -1,5 +1,6 @@
 from .rounds import Round
 from .player import Player
+from .match import Match
 import json
 from pathlib import Path
 
@@ -42,6 +43,54 @@ class Tournament:
     def save(self, filepath):
         with open(filepath, "w") as file:
             json.dump(self.serialize(), file, indent=4)
+            
+    def start_tournament(self):
+        if not self.can_start():
+            return
+        
+        round_one = Round(1) 
+        
+        self.generate_matches(round_one)
+        
+        self.add_round(round_one)
+        
+        self.current_round = 1
+        
+        self.save(round_one)
+        
+        return round_one
+    
+    def can_start(self):
+        if len(self.players) < 8:
+            return False
+        if len(self.rounds) > 0:
+                return False
+        
+        return True
+    
+    def generate_matches(self, round_obj):
+        players = self.players
+        
+        players = sorted(players, key =lambda player: player.chess_id)
+        
+        half = len(players)//2
+        top_half = players[:half]
+        bottom_half = players[half:]
+        
+        for i in range(len(top_half)):
+            
+            player_one = top_half[i]
+            player_two = bottom_half[i]
+            
+            match = Match([player_one, player_two])
+            
+            round_obj.add_match(match)
+    
+    
+    def record_match_result(self, match, winner = None):
+        match.mark_completed(winner)
+        
+           
         
     @classmethod
     def from_dict(cls, data):

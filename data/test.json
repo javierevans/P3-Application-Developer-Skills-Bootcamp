@@ -1,0 +1,11 @@
+{
+    "name": "test",
+    "location": "01/01",
+    "start_date": "01/03",
+    "end_date": "01/03",
+    "description": "yooo",
+    "current_round": 0,
+    "number_of_rounds": 4,
+    "players": [],
+    "rounds": []
+}

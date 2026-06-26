@@ -1,5 +1,5 @@
 from commands import ClubListCmd
-from screens import ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView
+from screens import (ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView, TournamentCreate, TournamentList,TournamentView,) 
 
 
 class App:
@@ -12,6 +12,9 @@ class App:
         "player-view": PlayerView,
         "player-edit": PlayerEdit,
         "player-create": PlayerEdit,
+        "tournament-create": TournamentCreate,
+        "tournament-list": TournamentList,
+        "tournament-view": TournamentView,
         "exit": False,
     }
 
