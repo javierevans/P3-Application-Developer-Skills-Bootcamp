@@ -60,7 +60,7 @@ class Tournament:
         
         self.current_round = 1
         
-        self.save(round_one)
+        self.save("tournament_round_1.json")
         
         return round_one
     
@@ -97,18 +97,30 @@ class Tournament:
             round_obj.add_match(match)
     
     def generate_next_round_matches(self, round_obj):
-        players = sorted(self.players, key = lambda player: (self.player_scores[player.chess_id], player.chess_id), reverse = True)
+        players = self.sort_players_by_score()
         
+        score_groups = self.build_score_groups(players)
+        
+        self.pair_score_groups(score_groups, round_obj)
+                            
+    def sort_players_by_score(self):
+        return sorted(self.players, key = lambda player: (self.player_scores[player.chess_id], player.chess_id), reverse = True)
+            
+    def build_score_groups(self,players):
         score_groups = {}
+        
         for player in players:
             score = self.player_scores[player.chess_id]
             if score not in score_groups:
                 score_groups[score] = []
             score_groups[score].append(player)
         
+        return score_groups  
+    
+    def pair_score_groups(self, score_groups, round_obj):
+        
         for score in score_groups:
             group = score_groups[score]
-            
             remaining_players = group.copy()
             
             while remaining_players:
@@ -129,12 +141,21 @@ class Tournament:
                 
                 if not found_opponent:
                     next_score = score - 0.5
+                    
                     if next_score in score_groups:
-                        next_group = score_groups[next_score]
-                        if next_group:
-                           
+                       score_groups[next_score].append(player_one)
+                       
+                    remaining_players.remove(player_one)      
+                                       
         
-        
+    def have_played_before(self, player_one, player_two):
+        for round_obj in self.rounds:
+            for match in round_obj.matches:
+                if player_one in match.players and player_two in match.players:
+                    return True
+        return False
+    
+    
     def record_match_result(self, match, winner = None):
         match.mark_completed(winner)
         
@@ -163,9 +184,9 @@ class Tournament:
                 self.generate_matches(new_round)
                 self.add_round(new_round)
                 self.save(f"tournament_round_{self.current_round}.json")
-        else:
-            print("Tournament completed!")
-            self.save(f"tournament_{self.name}.json")
+            else:
+                print("Tournament completed!")
+                self.save(f"tournament_{self.name}.json")
 
     @classmethod
     def from_dict(cls, data):
