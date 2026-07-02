@@ -14,6 +14,7 @@ class Tournament:
         self.description = description
         self.current_round = current_round
         self.players = players if players is not None else []
+        self.player_scores = {}
         self.rounds = rounds if rounds is not None else []
         
     def __str__(self): 
@@ -22,6 +23,7 @@ class Tournament:
     def add_player(self, player):
         if player is not None and player not in self.players:
             self.players.append(player)
+            self.player_scores[player.chess_id] = 0
             
     def add_round(self, round_obj):
         if round_obj is not None and round_obj not in self.rounds:
@@ -90,8 +92,35 @@ class Tournament:
     def record_match_result(self, match, winner = None):
         match.mark_completed(winner)
         
-           
+        #get the two players 
+        player_one, player_two = match.players
         
+        if winner == player_one:
+            self.player_scores[player_one.chess_id] += 1
+        elif winner == player_two:
+            self.player_scores[player_two.chess_id] += 1
+        else:
+            self.player_scores[player_one.chess_id] += 0.5
+            self.player_scores[player_two.chess_id] += 0.5
+        
+        #store round in variable
+        current_round = self.rounds[-1]
+        
+        self.save(f"tournament_round_{self.current_round}.json")
+        
+        #check if the round is completed
+        round_completed = current_round.is_completed()
+        if round_completed:
+            if self.current_round < self.number_of_rounds:
+                self.current_round += 1
+                new_round = Round(self.current_round)
+                self.generate_matches(new_round)
+                self.add_round(new_round)
+                self.save(f"tournament_round_{self.current_round}.json")
+        else:
+            print("Tournament completed!")
+            self.save(f"tournament_{self.name}.json")
+
     @classmethod
     def from_dict(cls, data):
         players = [
