@@ -4,6 +4,8 @@ from .match import Match
 import json
 from pathlib import Path
 
+from models import player
+
 class Tournament:
     def __init__(self, name, location, start_date, end_date, number_of_rounds, description, current_round = 0 , players = None, rounds = None ):
         self.name = name
@@ -71,24 +73,68 @@ class Tournament:
         return True
     
     def generate_matches(self, round_obj):
+        if self.current_round == 1:
+            self.generate_first_round_matches(round_obj)
+        else:
+            self.generate_next_round_matches(round_obj)
+        
+    def generate_first_round_matches(self, round_obj):
         players = self.players
-        
-        players = sorted(players, key =lambda player: player.chess_id)
-        
+            
+        players = sorted(players, key = lambda player: player.chess_id)
+            
         half = len(players)//2
         top_half = players[:half]
         bottom_half = players[half:]
-        
-        for i in range(len(top_half)):
             
+        for i in range(len(top_half)):
+                
             player_one = top_half[i]
             player_two = bottom_half[i]
-            
+                
             match = Match([player_one, player_two])
-            
+                
             round_obj.add_match(match)
     
-    
+    def generate_next_round_matches(self, round_obj):
+        players = sorted(self.players, key = lambda player: (self.player_scores[player.chess_id], player.chess_id), reverse = True)
+        
+        score_groups = {}
+        for player in players:
+            score = self.player_scores[player.chess_id]
+            if score not in score_groups:
+                score_groups[score] = []
+            score_groups[score].append(player)
+        
+        for score in score_groups:
+            group = score_groups[score]
+            
+            remaining_players = group.copy()
+            
+            while remaining_players:
+                found_opponent = False
+                player_one = remaining_players[0]
+                
+                for i in range(1, len(remaining_players)):
+                    player_two = remaining_players[i]
+                    
+                    if not self.have_played_before(player_one, player_two):
+                        match = Match([player_one, player_two])
+                        round_obj.add_match(match)
+                        
+                        remaining_players.remove(player_one)
+                        remaining_players.remove(player_two)
+                        found_opponent = True
+                        break
+                
+                if not found_opponent:
+                    next_score = score - 0.5
+                    if next_score in score_groups:
+                        next_group = score_groups[next_score]
+                        if next_group:
+                           
+        
+        
     def record_match_result(self, match, winner = None):
         match.mark_completed(winner)
         
