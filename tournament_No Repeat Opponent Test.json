@@ -1,0 +1,419 @@
+{
+    "name": "No Repeat Opponent Test",
+    "location": "Test City",
+    "start_date": "01-07-2026",
+    "end_date": "02-07-2026",
+    "description": "Testing Repeat Opponents",
+    "current_round": 4,
+    "number_of_rounds": 4,
+    "players": [
+        {
+            "name": "John",
+            "email": "john@test.com",
+            "chess_id": "1001",
+            "birthday": "01-01-1995"
+        },
+        {
+            "name": "Sarah",
+            "email": "sarah@test.com",
+            "chess_id": "1002",
+            "birthday": "02-02-1996"
+        },
+        {
+            "name": "Ryan",
+            "email": "ryan@test.com",
+            "chess_id": "1003",
+            "birthday": "03-03-1997"
+        },
+        {
+            "name": "Mike",
+            "email": "mike@test.com",
+            "chess_id": "1004",
+            "birthday": "04-04-1998"
+        },
+        {
+            "name": "Emma",
+            "email": "emma@test.com",
+            "chess_id": "1005",
+            "birthday": "05-05-1999"
+        },
+        {
+            "name": "Kate",
+            "email": "kate@test.com",
+            "chess_id": "1006",
+            "birthday": "06-06-2000"
+        },
+        {
+            "name": "Chris",
+            "email": "chris@test.com",
+            "chess_id": "1007",
+            "birthday": "07-07-2001"
+        },
+        {
+            "name": "Alex",
+            "email": "alex@test.com",
+            "chess_id": "1008",
+            "birthday": "08-08-2002"
+        }
+    ],
+    "rounds": [
+        {
+            "round_number": 1,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Alex",
+                            "email": "alex@test.com",
+                            "chess_id": "1008",
+                            "birthday": "08-08-2002"
+                        },
+                        {
+                            "name": "Chris",
+                            "email": "chris@test.com",
+                            "chess_id": "1007",
+                            "birthday": "07-07-2001"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Kate",
+                            "email": "kate@test.com",
+                            "chess_id": "1006",
+                            "birthday": "06-06-2000"
+                        },
+                        {
+                            "name": "Emma",
+                            "email": "emma@test.com",
+                            "chess_id": "1005",
+                            "birthday": "05-05-1999"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Mike",
+                            "email": "mike@test.com",
+                            "chess_id": "1004",
+                            "birthday": "04-04-1998"
+                        },
+                        {
+                            "name": "Ryan",
+                            "email": "ryan@test.com",
+                            "chess_id": "1003",
+                            "birthday": "03-03-1997"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Ryan",
+                        "email": "ryan@test.com",
+                        "chess_id": "1003",
+                        "birthday": "03-03-1997"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Sarah",
+                            "email": "sarah@test.com",
+                            "chess_id": "1002",
+                            "birthday": "02-02-1996"
+                        },
+                        {
+                            "name": "John",
+                            "email": "john@test.com",
+                            "chess_id": "1001",
+                            "birthday": "01-01-1995"
+                        }
+                    ],
+                    "winner": {
+                        "name": "John",
+                        "email": "john@test.com",
+                        "chess_id": "1001",
+                        "birthday": "01-01-1995"
+                    },
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 2,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Ryan",
+                            "email": "ryan@test.com",
+                            "chess_id": "1003",
+                            "birthday": "03-03-1997"
+                        },
+                        {
+                            "name": "John",
+                            "email": "john@test.com",
+                            "chess_id": "1001",
+                            "birthday": "01-01-1995"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Alex",
+                            "email": "alex@test.com",
+                            "chess_id": "1008",
+                            "birthday": "08-08-2002"
+                        },
+                        {
+                            "name": "Kate",
+                            "email": "kate@test.com",
+                            "chess_id": "1006",
+                            "birthday": "06-06-2000"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Kate",
+                        "email": "kate@test.com",
+                        "chess_id": "1006",
+                        "birthday": "06-06-2000"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Chris",
+                            "email": "chris@test.com",
+                            "chess_id": "1007",
+                            "birthday": "07-07-2001"
+                        },
+                        {
+                            "name": "Emma",
+                            "email": "emma@test.com",
+                            "chess_id": "1005",
+                            "birthday": "05-05-1999"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Chris",
+                        "email": "chris@test.com",
+                        "chess_id": "1007",
+                        "birthday": "07-07-2001"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Mike",
+                            "email": "mike@test.com",
+                            "chess_id": "1004",
+                            "birthday": "04-04-1998"
+                        },
+                        {
+                            "name": "Sarah",
+                            "email": "sarah@test.com",
+                            "chess_id": "1002",
+                            "birthday": "02-02-1996"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Mike",
+                        "email": "mike@test.com",
+                        "chess_id": "1004",
+                        "birthday": "04-04-1998"
+                    },
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 3,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Chris",
+                            "email": "chris@test.com",
+                            "chess_id": "1007",
+                            "birthday": "07-07-2001"
+                        },
+                        {
+                            "name": "Kate",
+                            "email": "kate@test.com",
+                            "chess_id": "1006",
+                            "birthday": "06-06-2000"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Kate",
+                        "email": "kate@test.com",
+                        "chess_id": "1006",
+                        "birthday": "06-06-2000"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Mike",
+                            "email": "mike@test.com",
+                            "chess_id": "1004",
+                            "birthday": "04-04-1998"
+                        },
+                        {
+                            "name": "John",
+                            "email": "john@test.com",
+                            "chess_id": "1001",
+                            "birthday": "01-01-1995"
+                        }
+                    ],
+                    "winner": {
+                        "name": "John",
+                        "email": "john@test.com",
+                        "chess_id": "1001",
+                        "birthday": "01-01-1995"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Alex",
+                            "email": "alex@test.com",
+                            "chess_id": "1008",
+                            "birthday": "08-08-2002"
+                        },
+                        {
+                            "name": "Emma",
+                            "email": "emma@test.com",
+                            "chess_id": "1005",
+                            "birthday": "05-05-1999"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Alex",
+                        "email": "alex@test.com",
+                        "chess_id": "1008",
+                        "birthday": "08-08-2002"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Sarah",
+                            "email": "sarah@test.com",
+                            "chess_id": "1002",
+                            "birthday": "02-02-1996"
+                        },
+                        {
+                            "name": "Ryan",
+                            "email": "ryan@test.com",
+                            "chess_id": "1003",
+                            "birthday": "03-03-1997"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 4,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Kate",
+                            "email": "kate@test.com",
+                            "chess_id": "1006",
+                            "birthday": "06-06-2000"
+                        },
+                        {
+                            "name": "John",
+                            "email": "john@test.com",
+                            "chess_id": "1001",
+                            "birthday": "01-01-1995"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Alex",
+                            "email": "alex@test.com",
+                            "chess_id": "1008",
+                            "birthday": "08-08-2002"
+                        },
+                        {
+                            "name": "Ryan",
+                            "email": "ryan@test.com",
+                            "chess_id": "1003",
+                            "birthday": "03-03-1997"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Mike",
+                            "email": "mike@test.com",
+                            "chess_id": "1004",
+                            "birthday": "04-04-1998"
+                        },
+                        {
+                            "name": "Chris",
+                            "email": "chris@test.com",
+                            "chess_id": "1007",
+                            "birthday": "07-07-2001"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Chris",
+                        "email": "chris@test.com",
+                        "chess_id": "1007",
+                        "birthday": "07-07-2001"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Emma",
+                            "email": "emma@test.com",
+                            "chess_id": "1005",
+                            "birthday": "05-05-1999"
+                        },
+                        {
+                            "name": "Sarah",
+                            "email": "sarah@test.com",
+                            "chess_id": "1002",
+                            "birthday": "02-02-1996"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Emma",
+                        "email": "emma@test.com",
+                        "chess_id": "1005",
+                        "birthday": "05-05-1999"
+                    },
+                    "completed": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,10 @@
+
+
 from .rounds import Round
 from .player import Player
 from .match import Match
 import json
-from pathlib import Path
-
-from models import player
+import random
 
 class Tournament:
     def __init__(self, name, location, start_date, end_date, number_of_rounds, description, current_round = 0 , players = None, rounds = None ):
@@ -52,13 +52,13 @@ class Tournament:
         if not self.can_start():
             return
         
+        self.current_round = 1
+        
         round_one = Round(1) 
         
         self.generate_matches(round_one)
         
         self.add_round(round_one)
-        
-        self.current_round = 1
         
         self.save("tournament_round_1.json")
         
@@ -79,12 +79,16 @@ class Tournament:
             self.generate_next_round_matches(round_obj)
         
     def generate_first_round_matches(self, round_obj):
-        players = self.players
+        players = self.players.copy()
             
-        players = sorted(players, key = lambda player: player.chess_id)
+        random.shuffle(players)
+        
+        print("\nAfter Shuffle:")
+        for player in players:
+            print(player.name)
             
         half = len(players)//2
-        top_half = players[:half]
+        top_half = players[:half] 
         bottom_half = players[half:]
             
         for i in range(len(top_half)):
@@ -162,13 +166,13 @@ class Tournament:
         #get the two players 
         player_one, player_two = match.players
         
-        if winner == player_one:
+        if winner is None:
+            self.player_scores[player_one.chess_id] += 0.5
+            self.player_scores[player_two.chess_id] += 0.5
+        elif winner == player_one:
             self.player_scores[player_one.chess_id] += 1
         elif winner == player_two:
             self.player_scores[player_two.chess_id] += 1
-        else:
-            self.player_scores[player_one.chess_id] += 0.5
-            self.player_scores[player_two.chess_id] += 0.5
         
         #store round in variable
         current_round = self.rounds[-1]
@@ -187,20 +191,37 @@ class Tournament:
             else:
                 print("Tournament completed!")
                 self.save(f"tournament_{self.name}.json")
+                
+    def rebuild_player_scores(self):
+        self.player_scores = {player.chess_id: 0 for player in self.players}
+        
+        for round_obj in self.rounds:
+            for match in round_obj.matches:
+                if match.completed:
+                    player_one, player_two = match.players
+                    winner = match.winner
+                    
+                    if winner is None:
+                        self.player_scores[player_one.chess_id] += 0.5
+                        self.player_scores[player_two.chess_id] += 0.5
+                    elif winner == player_one:
+                        self.player_scores[player_one.chess_id] += 1
+                    elif winner == player_two:
+                        self.player_scores[player_two.chess_id] += 1
 
     @classmethod
     def from_dict(cls, data):
         players = [
             Player.from_dict(player_data)
-             for player_data in data["players"]
+            for player_data in data["players"]
         ]
-        
+
         rounds = [
             Round.from_dict(round_obj_data)
-             for round_obj_data in data["rounds"]
+            for round_obj_data in data["rounds"]
         ]
-        
-        return cls(
+
+        tournament = cls(
             data["name"],
             data["location"],
             data["start_date"],
@@ -211,6 +232,10 @@ class Tournament:
             players,
             rounds
         )
+
+        tournament.rebuild_player_scores()
+
+        return tournament
     
     @classmethod
     def load(cls, filepath):
