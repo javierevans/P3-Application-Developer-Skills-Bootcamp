@@ -18,3 +18,4 @@ class StartTournamentCmd(BaseCommand):
             "tournament-view",
             tournament=self.tournament,
         )
+        

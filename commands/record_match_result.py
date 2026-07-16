@@ -20,4 +20,5 @@ class RecordMatchResultCmd(BaseCommand):
         return Context(
             "tournament-view",
             tournament=self.tournament,
-        )
+        ) 
+        

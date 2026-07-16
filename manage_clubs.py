@@ -24,8 +24,7 @@ class App:
         "match-result": MatchResult,
         "tournament-select-club": TournamentSelectClub,
         "tournament-register-player": TournamentRegisterPlayer,
-        "exit": False,
-    }
+        "exit": False,}
 
     def __init__(self):
         # We start with the list of clubs (= main menu)
