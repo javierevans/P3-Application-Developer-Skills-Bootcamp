@@ -6,6 +6,8 @@ from .match import Match
 import json
 import random
 
+from models import player
+
 class Tournament:
     def __init__(self, name, location, start_date, end_date, number_of_rounds, description, current_round = 0 , players = None, rounds = None ):
         self.name = name
@@ -23,9 +25,16 @@ class Tournament:
         return f"Tournament: {self.name} | Location: {self.location} | Player {len (self.players)}, Round: {self.current_round} / {self.number_of_rounds}"  
     
     def add_player(self, player):
-        if player is not None and player not in self.players:
-            self.players.append(player)
-            self.player_scores[player.chess_id] = 0
+        """Add a player to the tournament."""
+
+    # Don't add duplicate players
+        if player is None or player in self.players:
+            return False
+
+        self.players.append(player)
+        self.player_scores[player.chess_id] = 0
+
+        return True
             
     def add_round(self, round_obj):
         if round_obj is not None and round_obj not in self.rounds:
@@ -65,11 +74,18 @@ class Tournament:
         return round_one
     
     def can_start(self):
+    # Tournament needs at least 8 players
         if len(self.players) < 8:
             return False
+
+    # Tournament needs an even number of players
+        if len(self.players) % 2 != 0:
+            return False
+
+    # Tournament has already started
         if len(self.rounds) > 0:
-                return False
-        
+            return False
+
         return True
     
     def generate_matches(self, round_obj):

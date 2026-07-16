@@ -5,6 +5,8 @@ from .noop import NoopCmd
 from .update_player import PlayerUpdateCmd
 from .create_tournament import TournamentCreateCmd
 from .tournament_list import TournamentListCmd
+from .record_match_result import RecordMatchResultCmd
+from .start_tournament import StartTournamentCmd
 
 __all__ = [
     "ClubCreateCmd",
@@ -13,7 +15,8 @@ __all__ = [
     "ClubListCmd",
     "NoopCmd",
     "PlayerUpdateCmd",
-     "TournamentCreateCmd",
-     "TournamentListCmd",
-    
+    "TournamentCreateCmd",
+    "TournamentListCmd",
+    "RecordMatchResultCmd",
+    "StartTournamentCmd"
 ]

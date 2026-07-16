@@ -1,5 +1,8 @@
 from commands import ClubListCmd
-from screens import (ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView, TournamentCreate, TournamentList,TournamentView,) 
+from screens import (ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView, 
+TournamentCreate, TournamentList,TournamentView,TournamentStandings,TournamentReport, TournamentResults,
+ TournamentSelectClub, TournamentRegisterPlayer, MatchResult)
+from screens.tournaments.register_player import TournamentRegisterPlayer 
 
 
 class App:
@@ -15,6 +18,12 @@ class App:
         "tournament-create": TournamentCreate,
         "tournament-list": TournamentList,
         "tournament-view": TournamentView,
+        "tournament-standings": TournamentStandings,
+        "tournament-report": TournamentReport,
+        "tournament-results": TournamentResults,
+        "match-result": MatchResult,
+        "tournament-select-club": TournamentSelectClub,
+        "tournament-register-player": TournamentRegisterPlayer,
         "exit": False,
     }
 
