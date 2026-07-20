@@ -58,7 +58,9 @@ class Player:
         return data
 
     @classmethod
-    def from_dict(cls,data):
+    def from_dict(cls, data):
+        """Create a Player object from a dictionary."""
+
         return cls(
             data["name"],
             data["email"],

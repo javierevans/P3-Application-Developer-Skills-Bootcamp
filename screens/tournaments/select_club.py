@@ -1,4 +1,4 @@
-from commands import ClubListCmd, NoopCmd
+from commands import NoopCmd
 from models import ClubManager
 
 from ..base_screen import BaseScreen

@@ -1,0 +1,368 @@
+{
+    "name": "Tournament Test",
+    "location": "New Jersey",
+    "start_date": "07-16-2026",
+    "end_date": "07-17-2026",
+    "description": "Automated Test",
+    "current_round": 4,
+    "number_of_rounds": 4,
+    "players": [
+        {
+            "name": "Tim",
+            "email": "t@y.vu",
+            "chess_id": "NG39713",
+            "birthday": "29-08-1957"
+        },
+        {
+            "name": "John Underwood",
+            "email": "shortmelvin@example.net",
+            "chess_id": "JW63361",
+            "birthday": "23-01-1921"
+        },
+        {
+            "name": "Shawn Key",
+            "email": "zbyrd@example.net",
+            "chess_id": "QZ98880",
+            "birthday": "05-08-1916"
+        },
+        {
+            "name": "Tyler Brown",
+            "email": "watersbob@example.net",
+            "chess_id": "QQ22510",
+            "birthday": "07-05-2001"
+        },
+        {
+            "name": "Whitney Hernandez",
+            "email": "rortiz@example.org",
+            "chess_id": "QF01697",
+            "birthday": "10-11-1921"
+        },
+        {
+            "name": "Jeff Boyer",
+            "email": "heatherbowman@example.net",
+            "chess_id": "BR95594",
+            "birthday": "06-01-1930"
+        },
+        {
+            "name": "Paul Miller",
+            "email": "stokessandra@example.net",
+            "chess_id": "GN87065",
+            "birthday": "02-05-1972"
+        },
+        {
+            "name": "Shaun Martinez",
+            "email": "willie67@example.net",
+            "chess_id": "LH07588",
+            "birthday": "04-09-1938"
+        }
+    ],
+    "rounds": [
+        {
+            "round_number": 1,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Tyler Brown",
+                            "email": "watersbob@example.net",
+                            "chess_id": "QQ22510",
+                            "birthday": "07-05-2001"
+                        },
+                        {
+                            "name": "Whitney Hernandez",
+                            "email": "rortiz@example.org",
+                            "chess_id": "QF01697",
+                            "birthday": "10-11-1921"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Tyler Brown",
+                        "email": "watersbob@example.net",
+                        "chess_id": "QQ22510",
+                        "birthday": "07-05-2001"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Shaun Martinez",
+                            "email": "willie67@example.net",
+                            "chess_id": "LH07588",
+                            "birthday": "04-09-1938"
+                        },
+                        {
+                            "name": "Shawn Key",
+                            "email": "zbyrd@example.net",
+                            "chess_id": "QZ98880",
+                            "birthday": "05-08-1916"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "John Underwood",
+                            "email": "shortmelvin@example.net",
+                            "chess_id": "JW63361",
+                            "birthday": "23-01-1921"
+                        },
+                        {
+                            "name": "Tim",
+                            "email": "t@y.vu",
+                            "chess_id": "NG39713",
+                            "birthday": "29-08-1957"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Jeff Boyer",
+                            "email": "heatherbowman@example.net",
+                            "chess_id": "BR95594",
+                            "birthday": "06-01-1930"
+                        },
+                        {
+                            "name": "Paul Miller",
+                            "email": "stokessandra@example.net",
+                            "chess_id": "GN87065",
+                            "birthday": "02-05-1972"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Paul Miller",
+                        "email": "stokessandra@example.net",
+                        "chess_id": "GN87065",
+                        "birthday": "02-05-1972"
+                    },
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 2,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Tyler Brown",
+                            "email": "watersbob@example.net",
+                            "chess_id": "QQ22510",
+                            "birthday": "07-05-2001"
+                        },
+                        {
+                            "name": "Paul Miller",
+                            "email": "stokessandra@example.net",
+                            "chess_id": "GN87065",
+                            "birthday": "02-05-1972"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Shawn Key",
+                            "email": "zbyrd@example.net",
+                            "chess_id": "QZ98880",
+                            "birthday": "05-08-1916"
+                        },
+                        {
+                            "name": "Tim",
+                            "email": "t@y.vu",
+                            "chess_id": "NG39713",
+                            "birthday": "29-08-1957"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Shawn Key",
+                        "email": "zbyrd@example.net",
+                        "chess_id": "QZ98880",
+                        "birthday": "05-08-1916"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Shaun Martinez",
+                            "email": "willie67@example.net",
+                            "chess_id": "LH07588",
+                            "birthday": "04-09-1938"
+                        },
+                        {
+                            "name": "John Underwood",
+                            "email": "shortmelvin@example.net",
+                            "chess_id": "JW63361",
+                            "birthday": "23-01-1921"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Whitney Hernandez",
+                            "email": "rortiz@example.org",
+                            "chess_id": "QF01697",
+                            "birthday": "10-11-1921"
+                        },
+                        {
+                            "name": "Jeff Boyer",
+                            "email": "heatherbowman@example.net",
+                            "chess_id": "BR95594",
+                            "birthday": "06-01-1930"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 3,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Shawn Key",
+                            "email": "zbyrd@example.net",
+                            "chess_id": "QZ98880",
+                            "birthday": "05-08-1916"
+                        },
+                        {
+                            "name": "Tyler Brown",
+                            "email": "watersbob@example.net",
+                            "chess_id": "QQ22510",
+                            "birthday": "07-05-2001"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Tyler Brown",
+                        "email": "watersbob@example.net",
+                        "chess_id": "QQ22510",
+                        "birthday": "07-05-2001"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Shaun Martinez",
+                            "email": "willie67@example.net",
+                            "chess_id": "LH07588",
+                            "birthday": "04-09-1938"
+                        },
+                        {
+                            "name": "Paul Miller",
+                            "email": "stokessandra@example.net",
+                            "chess_id": "GN87065",
+                            "birthday": "02-05-1972"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Paul Miller",
+                        "email": "stokessandra@example.net",
+                        "chess_id": "GN87065",
+                        "birthday": "02-05-1972"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Whitney Hernandez",
+                            "email": "rortiz@example.org",
+                            "chess_id": "QF01697",
+                            "birthday": "10-11-1921"
+                        },
+                        {
+                            "name": "Tim",
+                            "email": "t@y.vu",
+                            "chess_id": "NG39713",
+                            "birthday": "29-08-1957"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Whitney Hernandez",
+                        "email": "rortiz@example.org",
+                        "chess_id": "QF01697",
+                        "birthday": "10-11-1921"
+                    },
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Jeff Boyer",
+                            "email": "heatherbowman@example.net",
+                            "chess_id": "BR95594",
+                            "birthday": "06-01-1930"
+                        },
+                        {
+                            "name": "John Underwood",
+                            "email": "shortmelvin@example.net",
+                            "chess_id": "JW63361",
+                            "birthday": "23-01-1921"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                }
+            ]
+        },
+        {
+            "round_number": 4,
+            "matches": [
+                {
+                    "players": [
+                        {
+                            "name": "Shawn Key",
+                            "email": "zbyrd@example.net",
+                            "chess_id": "QZ98880",
+                            "birthday": "05-08-1916"
+                        },
+                        {
+                            "name": "Whitney Hernandez",
+                            "email": "rortiz@example.org",
+                            "chess_id": "QF01697",
+                            "birthday": "10-11-1921"
+                        }
+                    ],
+                    "winner": null,
+                    "completed": true
+                },
+                {
+                    "players": [
+                        {
+                            "name": "Shaun Martinez",
+                            "email": "willie67@example.net",
+                            "chess_id": "LH07588",
+                            "birthday": "04-09-1938"
+                        },
+                        {
+                            "name": "Jeff Boyer",
+                            "email": "heatherbowman@example.net",
+                            "chess_id": "BR95594",
+                            "birthday": "06-01-1930"
+                        }
+                    ],
+                    "winner": {
+                        "name": "Shaun Martinez",
+                        "email": "willie67@example.net",
+                        "chess_id": "LH07588",
+                        "birthday": "04-09-1938"
+                    },
+                    "completed": true
+                }
+            ]
+        }
+    ]
+}

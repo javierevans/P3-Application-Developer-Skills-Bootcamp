@@ -1,6 +1,7 @@
 import random
 
-from models import ClubManager
+from models import ClubManager, club
+from models import tournament
 from models.tournament import Tournament
 
 
@@ -34,7 +35,11 @@ def main():
 
     club_manager = ClubManager()
 
-    club = club_manager.clubs[0]
+    club = next(
+    club
+    for club in club_manager.clubs
+    if len(club.players) >= 8
+    )
 
     tournament = Tournament(
         "Tournament Test",
@@ -48,15 +53,28 @@ def main():
     print("\nAdding Players...\n")
 
     # Add the first 8 players
-    for player in club.players[:10]:
-        tournament.add_player(player)
-        print(player.name)
+    players_added = 0
+
+    for player in club.players:
+        if tournament.add_player(player):
+            print(player.name)
+            players_added += 1
+
+        if players_added == 8:
+            break
 
     print(f"\nPlayers Added: {len(tournament.players)}")
 
     print("\nStarting Tournament...\n")
 
     tournament.start_tournament()
+
+    if not tournament.rounds:
+        raise RuntimeError(
+            "Tournament failed to start. Check that at least 8 players were added."
+    )
+
+    current_round = tournament.rounds[-1]
 
     while tournament.current_round <= tournament.number_of_rounds:
 

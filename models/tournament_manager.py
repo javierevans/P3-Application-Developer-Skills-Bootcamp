@@ -11,7 +11,7 @@ class TournamentManager:
         self.tournaments = []
 
         for filepath in datadir.iterdir():
-        
+
             if filepath.is_file() and filepath.suffix == ".json":
                 try:
                     tournament = Tournament.load(filepath)

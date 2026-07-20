@@ -4,9 +4,10 @@ from .base import BaseCommand
 
 
 class StartTournamentCmd(BaseCommand):
-    """Starts a tournament."""
+    """Command used to start a tournament."""
 
     def __init__(self, tournament):
+        # Store the tournament
         self.tournament = tournament
 
     def execute(self):
@@ -18,4 +19,3 @@ class StartTournamentCmd(BaseCommand):
             "tournament-view",
             tournament=self.tournament,
         )
-        

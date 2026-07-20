@@ -4,9 +4,10 @@ from ..base_screen import BaseScreen
 
 
 class TournamentView(BaseScreen):
-    """Screen displayed when viewing a Tournament"""
+    """Screen displayed when viewing a tournament."""
 
     def __init__(self, tournament):
+        # Store the selected tournament
         self.tournament = tournament
 
     def display(self):
@@ -15,8 +16,11 @@ class TournamentView(BaseScreen):
         print("=" * 50)
         print(f"Location: {self.tournament.location}")
         print(
-            f"Current Round: {self.tournament.current_round}/{self.tournament.number_of_rounds}"
+            f"Current Round: "
+            f"{self.tournament.current_round}/"
+            f"{self.tournament.number_of_rounds}"
         )
+
         player_count = len(self.tournament.players)
 
         if player_count % 2 == 0 and player_count >= 8:
@@ -38,44 +42,44 @@ class TournamentView(BaseScreen):
 
     def get_command(self):
         while True:
-         choice = self.input_string("Choose an option")
+            choice = self.input_string("Choose an option")
 
-        # Register players
-         if choice == "1":
-            return NoopCmd(
-                "tournament-select-club",
-                tournament=self.tournament,
-            )
+            # Register players
+            if choice == "1":
+                return NoopCmd(
+                    "tournament-select-club",
+                    tournament=self.tournament,
+                )
 
-        # Start the tournament
-         elif choice == "2":
-            return StartTournamentCmd(
-                self.tournament,
-            )
+            # Start the tournament
+            elif choice == "2":
+                return StartTournamentCmd(
+                    self.tournament,
+                )
 
-        # Enter match results
-         elif choice == "3":
-            return NoopCmd(
-                "tournament-results",
-                tournament=self.tournament,
-            )
+            # Enter match results
+            elif choice == "3":
+                return NoopCmd(
+                    "tournament-results",
+                    tournament=self.tournament,
+                )
 
-        # View standings
-         elif choice == "4":
-            return NoopCmd(
-                "tournament-standings",
-                tournament=self.tournament,
-            )
+            # View standings
+            elif choice == "4":
+                return NoopCmd(
+                    "tournament-standings",
+                    tournament=self.tournament,
+                )
 
-        # Tournament report
-         elif choice == "5":
-            return NoopCmd(
-                "tournament-report",
-                tournament=self.tournament,
-            )
+            # Tournament report
+            elif choice == "5":
+                return NoopCmd(
+                    "tournament-report",
+                    tournament=self.tournament,
+                )
 
-        # Return to tournament list
-         elif choice == "0":
-            return ClubListCmd()
+            # Return to tournament list
+            elif choice == "0":
+                return ClubListCmd()
 
-         print("Invalid option.")
+            print("Invalid option.")

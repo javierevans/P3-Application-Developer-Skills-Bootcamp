@@ -1,12 +1,24 @@
 from commands import ClubListCmd
-from screens import (ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView, 
-TournamentCreate, TournamentList,TournamentView,TournamentStandings,TournamentReport, TournamentResults,
- TournamentSelectClub, TournamentRegisterPlayer, MatchResult)
-from screens.tournaments.register_player import TournamentRegisterPlayer 
+from screens import (
+    ClubCreate,
+    ClubView,
+    MainMenu,
+    MatchResult,
+    PlayerEdit,
+    PlayerView,
+    TournamentCreate,
+    TournamentList,
+    TournamentRegisterPlayer,
+    TournamentReport,
+    TournamentResults,
+    TournamentSelectClub,
+    TournamentStandings,
+    TournamentView,
+)
 
 
 class App:
-    """The main controller for the club management program"""
+    """The main controller for the club management program."""
 
     SCREENS = {
         "main-menu": MainMenu,
@@ -24,7 +36,8 @@ class App:
         "match-result": MatchResult,
         "tournament-select-club": TournamentSelectClub,
         "tournament-register-player": TournamentRegisterPlayer,
-        "exit": False,}
+        "exit": False,
+    }
 
     def __init__(self):
         # We start with the list of clubs (= main menu)
@@ -35,11 +48,14 @@ class App:
         while self.context.run:
             # Get the screen class from the mapping
             screen = self.SCREENS[self.context.screen]
+
             try:
                 # Run the screen and get the command
                 command = screen(**self.context.kwargs).run()
+
                 # Run the command and get a context back
                 self.context = command()
+
             except KeyboardInterrupt:
                 # Ctrl-C
                 print("Bye!")

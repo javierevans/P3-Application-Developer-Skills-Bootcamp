@@ -5,8 +5,14 @@ from .base import BaseCommand
 
 
 class TournamentListCmd(BaseCommand):
-    """Command to get the list of tournaments"""
+    """Command used to load the list of tournaments."""
 
     def execute(self):
+        # Load every saved tournament
         tm = TournamentManager()
-        return Context("tournament-list", tournaments = tm.tournaments)
+
+        # Display the tournament list screen
+        return Context(
+            "tournament-list",
+            tournaments=tm.tournaments,
+        )
